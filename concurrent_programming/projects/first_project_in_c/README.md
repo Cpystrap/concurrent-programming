@@ -142,11 +142,9 @@ Example output (valid for the above input):
 - Measurement should be on a machine where reference implementation completes within 1 minute for input `1 34 1 0 1`.  
 
 **Deliverables**  
-
-- Archive `ab12345.zip` containing folder `ab12345` with your initials and student ID.  
 - Non-recursive version: `nonrecursive/nonrecursive` executable.  
 - Parallel version: `parallel/parallel` executable.  
-- Report: `ab12345/report.pdf`.  
+- Report: `report.pdf`.  
 - Optional additional files allowed if compilation works with:
 
 unzip ab12345.zip
@@ -158,4 +156,5 @@ echo -n -e '1 3 1 0\n1\n\n' | ./parallel/parallel
 
 
 - Folder `common` must not be modified; CMakeLists.txt in root will be restored.  
+
 - You may modify CMakeLists.txt in subfolders, `.clang-tidy`, and `.clang-format`.
