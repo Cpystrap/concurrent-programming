@@ -8,7 +8,7 @@
 #include "common/sumset.h"
 
 typedef struct {
-    // Zadania to wskaźniki na ojców oraz i dla którego tworzę nowy sumset
+    // The tasks are pointers to the parents and i for which I create a new sumset
     const Sumset *a, *b;
     int i;
 } Task;
@@ -16,21 +16,21 @@ typedef struct {
 static InputData input_data;
 static Solution best_solution;
 
-// Tablica zadań i sumsetów
+// Array of tasks and sumsets
 static Sumset* tab_sumset = NULL;
 static Task* tab_tasks = NULL;
 
-static int s = 0; // Indeks ostatniego sumsetu
-static atomic_int zz; // Liczba dostępnych zadań
-static int z = 0; // Indeks ostatniego zadania (tylko do dodawania zadań)
+static int s = 0; // Index of the last sumset
+static atomic_int zz; // Number of available tasks
+static int z = 0; // Index of the last task (only for adding tasks)
 
-// Odblokowuje wątki które robią zadania
+// Unlocks the threads that are processing tasks
 static sem_t main_semaphore;
 
-// Poziom rekurencji z zadaniami
+// Recursion level with tasks
 static int task_level = 3;
 
-// Solution każdego wątku
+// Solution of each thread
 typedef struct {
     Solution local_solution;
 } ThreadData;
@@ -59,7 +59,7 @@ void* thread_function(void* arg) {
     ThreadData* thread_data = (ThreadData*)arg;
     while (true) {
         int task_idx = atomic_fetch_sub(&zz, 1) - 1;
-        if (task_idx < 0)   // nie ma już więcej zadań
+        if (task_idx < 0)   // there is no more tasks
             break;
 
         const Sumset* a = tab_tasks[task_idx].a;
@@ -111,7 +111,7 @@ void* main_solver_thread(void* arg) {
 
     while (true) {
         int task_idx = atomic_fetch_sub(&zz, 1) - 1;
-        if (task_idx < 0)   // nie ma już więcej zadań
+        if (task_idx < 0)   // there is no more other tasks
             break;
 
         const Sumset* a = tab_tasks[task_idx].a;
@@ -172,7 +172,7 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    // Zbieranie wynikow
+    // Collecting results
     size_t max_ind = 0;
     int best_sum = thread_data[0].local_solution.sum;
     for (size_t i = 1; i < thread_count; ++i) {
