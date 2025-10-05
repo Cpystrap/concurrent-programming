@@ -1,4 +1,4 @@
-# Concurrent Programming Examples
+# Concurrent Programming
 
 This repository contains exercises and projects for concurrent programming in Java and C.  
 It demonstrates different concurrency models such as **threads**, **processes**, and **asynchronous programming**.
