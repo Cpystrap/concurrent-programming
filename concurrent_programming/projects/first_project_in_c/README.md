@@ -31,11 +31,7 @@ These examples are actually optimal: $\alpha(d, \emptyset, \emptyset) = d(d-1)$ 
 
 ## Recursive backtracking approach
 
-For a multiset $A$ define
-$
-A_{\Sigma} = \{\sum A' : A' \subseteq A\}
-$
-— the set of all possible subset sums of $A$ (considered as a set, multiplicities ignored).
+For a multiset $A$ define $A_{\Sigma} = \{\sum A' : A' \subseteq A\}$ — the set of all possible subset sums of $A$ (considered as a set, multiplicities ignored).
 
 A reference recursive procedure is:
 
@@ -54,11 +50,11 @@ A reference recursive procedure is:
 
 Here `lastA` denotes the last element added to $A$; for $A = A_0$ assume `lastA = 1` (recursion adds elements to $A_0$ non-decreasingly).
 
-To avoid recomputing $A_{\Sigma}$ and $B_{\Sigma}$ from scratch, they are passed along. Adding an element $x$ to $A$ updates
-$$
-A_{\Sigma} \gets A_{\Sigma} \cup (A_{\Sigma} + x),
-$$
-where $A_{\Sigma} + x$ is the set obtained by adding $x$ to every element of $A_{\Sigma}$. Subset-sum sets are represented efficiently as bitsets.
+To avoid recomputing $A_{\Sigma}$ and $B_{\Sigma}$ from scratch, they are passed along.  
+Adding an element $x$ to $A$ updates  
+$A_{\Sigma} \gets A_{\Sigma} \cup (A_{\Sigma} + x)$,  
+where $A_{\Sigma} + x$ is the set obtained by adding $x$ to every element of $A_{\Sigma}$.  
+Subset-sum sets are represented efficiently as bitsets.
 
 ## Task (programming)
 
@@ -147,4 +143,5 @@ echo -n -e '1 3 1 0\n1\n\n' | ./parallel/parallel
 - Folder `common` must not be modified; CMakeLists.txt in root will be restored.  
 
 - You may modify CMakeLists.txt in subfolders, `.clang-tidy`, and `.clang-format`.
+
 
