@@ -11,9 +11,7 @@ For two multisets we write $A \supseteq B$ if each element occurs in $A$ at leas
 **Definition.** A multiset $A$ is called *d-limited* for a natural number $d$ if it is finite and all its elements belong to $\{1, \dots, d\}$ (repetitions allowed).
 
 **Definition.** A pair of d-limited multisets $A, B$ is called *disputed-free* if for all $A' \subseteq A$ and $B' \subseteq B$,
-$$
-\sum A' = \sum B' \iff A' = B' = \emptyset \text{ or } (A' = A \text{ and } B' = B).
-$$
+$\sum A' = \sum B' \iff A' = B' = \emptyset \text{ or } (A' = A \text{ and } B' = B).$
 In other words: $\sum A = \sum B$, but the sums of any other non-empty subsets of $A$ and $B$ must differ.
 
 ## Problem
@@ -149,10 +147,3 @@ echo -n -e '1 3 1 0\n1\n\n' | ./parallel/parallel
 - Folder `common` must not be modified; CMakeLists.txt in root will be restored.  
 
 - You may modify CMakeLists.txt in subfolders, `.clang-tidy`, and `.clang-format`.
-
-<script type="text/javascript"
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
