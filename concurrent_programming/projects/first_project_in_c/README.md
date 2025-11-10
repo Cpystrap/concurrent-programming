@@ -32,9 +32,9 @@ These examples are actually optimal: $\alpha(d, \emptyset, \emptyset) = d(d-1)$ 
 ## Recursive backtracking approach
 
 For a multiset $A$ define
-$$
+$
 A_{\Sigma} = \{\sum A' : A' \subseteq A\}
-$$
+$
 — the set of all possible subset sums of $A$ (considered as a set, multiplicities ignored).
 
 A reference recursive procedure is:
@@ -147,3 +147,4 @@ echo -n -e '1 3 1 0\n1\n\n' | ./parallel/parallel
 - Folder `common` must not be modified; CMakeLists.txt in root will be restored.  
 
 - You may modify CMakeLists.txt in subfolders, `.clang-tidy`, and `.clang-format`.
+
