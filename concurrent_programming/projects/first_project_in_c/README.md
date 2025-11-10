@@ -93,12 +93,13 @@ Example input:
 1
 
 
-Output: maximum sum \(\sum A\), followed by multisets A and B in the format:
 
-- First line: \(\sum A\)  
-- Second and third lines: description of multisets A and B  
-- For elements with multiplicity 1, write just the element; for multiplicity k > 1, write `kx` followed by element.  
-- Elements are listed in ascending order.
+**Output:** maximum sum $\sum A$, followed by multisets $A$ and $B$ in the format:
+- First line: $\sum A$.
+- Second and third lines: description of multisets $A$ and $B$.
+  - For multiplicity $1$ write the element alone.
+  - For multiplicity $k>1$ write `kx` followed by the element (for example `3x5`).
+  - Elements listed in ascending order.
 
 If no solution exists, output:
 
@@ -148,4 +149,5 @@ echo -n -e '1 3 1 0\n1\n\n' | ./parallel/parallel
 - Folder `common` must not be modified; CMakeLists.txt in root will be restored.  
 
 - You may modify CMakeLists.txt in subfolders, `.clang-tidy`, and `.clang-format`.
+
 
