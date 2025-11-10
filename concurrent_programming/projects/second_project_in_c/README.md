@@ -37,15 +37,7 @@ You will receive a skeleton project; your task is to implement the key component
 
 **State Diagram**
 
-executor_spawn COMPLETED / FAILURE
-│ ▲
-▼ executor calls │
-PENDING ───► fut->progress(fut, waker) ──+
-(queued) │
-▲ │
-│ ▼
-└─── waker_wake() ◄───────────── PENDING
-(waiting) (waker held)
+![Diagram wykonania](./diagram.png)
 
 
 **Execution Flow**
@@ -96,4 +88,5 @@ Implement three combinators:
 - Run all tests: `ctest --output-on-failure`  
 - Run individual test: `./<test_name>`  
 - Memory debugging: Valgrind (`--track-origins=yes --track-fds=yes`)  
+
 - Address Sanitizer: compile with `-fsanitize=address` (already set in provided CMakeLists.txt).
